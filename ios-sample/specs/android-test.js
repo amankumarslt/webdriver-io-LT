@@ -1,54 +1,42 @@
 describe("Proverbial APK", () => {
   it("Changes color", async () => {
-    const color = await $("id=color");
+    var color = await $("id=color");
     await color.waitForDisplayed({ timeout: 30000 });
     await color.click();
     await color.click();
   });
 
   it("Changes text", async () => {
-    const text = await $("id=Text");
+    var text = await $("id=Text");
     await text.waitForDisplayed({ timeout: 30000 });
     await text.click();
   });
 
   it("Toast", async () => {
-    const toast = await $("id=toast");
+    var toast = await $("id=toast");
     await toast.waitForDisplayed({ timeout: 30000 });
     await toast.click();
   });
 
   it("Notification", async () => {
-    const nf = await $("id=notification");
+    var nf = await $("id=notification");
     await nf.waitForDisplayed({ timeout: 30000 });
     await nf.click();
-
-    // Handle Allow permission popup if shown
-    try {
-      const allowBtn = await $(
-        "id:com.android.permissioncontroller:id/permission_allow_button"
-      );
-      if (await allowBtn.isDisplayed()) {
-        await allowBtn.click();
-        console.log("Clicked Allow Notification permission button");
-      }
-    } catch (err) {
-      console.log("No permission popup found or already handled");
-    }
   });
 
   it("Geolocation", async () => {
-    const geo = await $("id=geoLocation");
+    var geo = await $("id=geoLocation");
     await geo.waitForDisplayed({ timeout: 30000 });
     await geo.click();
     await driver.back();
   });
 
   it("SpeedTest", async () => {
-    const st = await $("id=speedTest");
+    var st = await $("id=speedTest");
     await st.waitForDisplayed({ timeout: 30000 });
     await st.click();
     await browser.pause(10000);
     await driver.back();
   });
+
 });
